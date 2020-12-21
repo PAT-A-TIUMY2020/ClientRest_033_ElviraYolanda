@@ -9,18 +9,21 @@ using System.Net;
 
 namespace ClientRest_033_ElviraYolanda
 {
-    public void getData()
+    class ClassData
     {
-        var json = new WebClient().DownloadString("http://localhost:1907/Mahasiswa");
-        var data = JsonConvert.DeserializeObject<List<Mahasiswa>>(json);
-
-        foreach (var mhs in data)
+        public void getData()
         {
-            Console.WriteLine("Nama: " + mhs.nama);
-            Console.WriteLine("NIM: " + mhs.nim);
-            Console.WriteLine("Prodi: " + mhs.prodi);
-            Console.WriteLine("Angkatan: " + mhs.angkatan);
+            var json = new WebClient().DownloadString("http://localhost:1907/Mahasiswa");
+            var data = JsonConvert.DeserializeObject<List<Mahasiswa>>(json);
+
+            foreach (var mhs in data)
+            {
+                Console.WriteLine("Nama: " + mhs.nama);
+                Console.WriteLine("NIM: " + mhs.nim);
+                Console.WriteLine("Prodi: " + mhs.prodi);
+                Console.WriteLine("Angkatan: " + mhs.angkatan);
+            }
+            Console.ReadLine();
         }
-        Console.ReadLine();
     }
 }
